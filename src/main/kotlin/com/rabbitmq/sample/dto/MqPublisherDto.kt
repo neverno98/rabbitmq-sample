@@ -8,10 +8,10 @@ package com.rabbitmq.sample.dto
 
 data class MqPublisherDto(
 
-        private var queue: String = "",
-        private var messageId: String = "",
-        private var message: String = "",
-        private var priority: Int = 0,
-        private var queueArgs: Map<String, Any>? = null
+        var queue: String = "",
+        var messageId: String = "",
+        var message: String = "",
+        var priority: Int = 0,
+        var queueArgs: Map<String, Any>? = null
 ) {
 }

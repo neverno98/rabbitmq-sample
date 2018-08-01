@@ -9,7 +9,7 @@ import com.rabbitmq.client.Channel
 
 interface IChannelCallable<T> {
 
-    val description: String
+    fun getDescrption(): String
 
     @Throws(Exception::class)
     fun call(channel: Channel): T

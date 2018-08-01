@@ -17,7 +17,7 @@ object MqBinder {
     }
 
     @Throws(IOException::class)
-    fun declareQueue(queue: String, channel: Channel, queueArgs: Map<String, Any>): AMQP.Queue.DeclareOk {
+    fun declareQueue(queue: String, channel: Channel, queueArgs: Map<String, Any>?): AMQP.Queue.DeclareOk {
 
         val durable = true
         val exclusive = false
