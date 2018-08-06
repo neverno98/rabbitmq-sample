@@ -11,7 +11,7 @@ import com.rabbitmq.sample.core.service.ThreadService
 abstract class MqService : ThreadService() {
 
     var mqSplitManager = MqSplitManager()
-    var queueArgs: Map<String, Any>? = null
+    var queueArgs: MutableMap<String, Any>? = null
     var mqSubscriber: MqSubscriber? = null
     var name: String? = null
 
