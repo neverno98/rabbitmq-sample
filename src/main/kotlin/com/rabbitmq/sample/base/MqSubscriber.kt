@@ -9,7 +9,7 @@ import java.io.IOException
  * @since 2018-08-01
  */
 
-open class MqSubscriber @JvmOverloads constructor(mqConnType: MqConnType = MqConnType.Type1) {
+open class MqSubscriber (mqConnType: MqConnType = MqConnType.Type1) {
 
     companion object {
 
@@ -18,13 +18,17 @@ open class MqSubscriber @JvmOverloads constructor(mqConnType: MqConnType = MqCon
 
     var mqConnManager: MqConnManager = MqConnManager(mqConnType)
     var expireTime = DEFAULT_EXPRIER_TIME
+    var mqConnType: MqConnType
 
     init {
-
+        this.mqConnType = mqConnType
         mqConnManager.connect()
     }
 
-    fun bindQueue(queue: String, queueArgs: Map<String, Any>): Boolean? {
+    fun bindQueue(queue: String?, queueArgs: Map<String, Any>?): Boolean? {
+
+        queue ?: return false
+        queueArgs ?: return false
 
         return bindQueue(queue, queue, queueArgs)
     }
